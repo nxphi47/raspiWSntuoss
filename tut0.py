@@ -10,7 +10,7 @@ import time
 
 GPIO.VERSION
 # set the mode of GPIO
-GPIO.setMode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD)
 
 ledPin = 11	# onboard, 17 BCM
 buttonPin = 13	# onboard, 27 BCM
