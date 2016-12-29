@@ -1,26 +1,24 @@
 """
 First tutorial
-Blinking and button
+Blinking with button and dimming
 """
 
 # import GPIO module
 import RPi.GPIO as GPIO
 import time
 
-
-GPIO.VERSION
 # set the mode of GPIO
 GPIO.setmode(GPIO.BOARD)
 
-ledPin = 11	# onboard, 17 BCM
-buttonPin = 13	# onboard, 27 BCM
-pwmPin = 12 #onboard 12
+ledPin = 11  # onboard, 17 BCM
+buttonPin = 13  # onboard, 27 BCM
+pwmPin = 12  # onboard 12
 
 # setmode for the pin
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(buttonPin, GPIO.IN)
 GPIO.setup(pwmPin, GPIO.OUT)
-pwm = GPIO.PWM(pwmPin, 1000) #1KHz of Pulse width modulation
+pwm = GPIO.PWM(pwmPin, 1000)  # 1KHz of Pulse width modulation
 
 
 # loop function
@@ -64,9 +62,10 @@ def dimming():
 		GPIO.cleanup()
 
 
-
-#where the program begin
-try:
-	blinking()
-except KeyboardInterrupt:
-	GPIO.cleanup()
+# where the program begin
+if __name__ == "__main__":
+	try:
+		# specify a function for the rasp to execute
+		blinking()
+	except KeyboardInterrupt:
+		GPIO.cleanup()
